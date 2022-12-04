@@ -1,9 +1,245 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
-date: "2022-10-24"
+title: "Final Project"
+author: "Brenden Bready"
+date: "2022-12-4"
 categories: [news, code, analysis]
 image: "image.jpg"
 ---
 
-This is a post with executable code.
+---
+title: "Final Project"
+author: "Brenden Bready"
+date: "2022-11-29"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE, warning=FALSE, message=FALSE}
+# libraries
+library(tidyverse)
+```
+
+# Objective
+For this project, I will be doing an analysis of player ratings and statistics across different years of the FIFA video game. Many FIFA fans feel that player statistics are inflated every year, having various effects on game play and strategies. Through this analysis, I hope to investigate whether this hypothesis is accurate, as well as investigating other hidden trends throughout the game.
+
+# Data Description
+The data is presented in 8 different data sets containing hundreds of stats for each player in the FIFA video game. Each player in the game has 6 base statistics: pace, shooting, dribbling, passing, defending, and physical. Each stat is scored from 1-99, with 1 being the lowest and 99 being the highest. Generally, no player will ever have a stat lower than 10, and stats above 90 are fairly uncommon and reserved for only the best. For example, you might expect a forward to have somewhere around 70-80 shooting, and maybe 30-40 defending, while a defender will have opposite stats. The stats determine how well the player plays during a game.
+
+```{r}
+players15 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_15.csv")
+players16 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_16.csv")
+players17 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_17.csv")
+players18 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_18.csv")
+players19 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_19.csv")
+players20 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_20.csv")
+players21 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_21.csv")
+players22 = read.csv("C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_22.csv")
+```
+
+# Data Organization
+The first step in the analysis was to organize the data. When read in, each data set had over 100 columns corresponding to various details about a player's stats. To simplify this, I will select out a player's base stats (pace, shooting, passing, dribbling, defending, physical) as well as some details about the player for potential related analysis. I will also add a year variable to each data set, which will be helpful in the next step when combining them.
+
+```{r}
+# Reorganizing Fifa 15 set
+players15 = players15 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 15)
+
+# Reorganizing Fifa 16 set
+players16 = players16 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 16)
+
+# Reorganizing Fifa 17 set
+players17 = players17 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 17)
+
+# Reorganizing Fifa 18 set
+players18 = players18 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 18)
+
+# Reorganizing Fifa 19 set
+players19 = players19 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 19)
+
+# Reorganizing Fifa 20 set
+players20 = players20 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 20)
+
+# Reorganizing Fifa 21 set
+players21 = players21 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 21)
+
+# Reorganizing Fifa 22 set
+players22 = players22 %>%
+  select(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) %>%
+  mutate(year = 22)
+```
+
+After the data is organized, I will use the full_join() to merge the datasets. I use full_join() so that I can have details about every player split up by the year. This is also a good way to only include players who were in each FIFA from 2015-2022 to help with consistency. For example, if you filter the dataset to only include details about Lionel Messi, you will see his stats for each year from 2015-2022. As a note, I have removed goalkeepers from the analysis since their stats are different from other outfield players. An example of the data filtered to only details Messi is shown below.
+
+```{r, warning=FALSE, message=FALSE}
+# Combining all datasets into one
+join1 = full_join(players15, players16)
+join2 = full_join(join1, players17)
+join3 = full_join(join2, players18)
+join4 = full_join(join3, players19)
+join5 = full_join(join4, players20)
+join6 = full_join(join5, players21)
+fulldata = full_join(join6, players22) %>%
+  filter(player_positions != "GK") %>%
+  mutate(year = as.factor(year)) %>%
+  group_by(sofifa_id) %>%
+  filter(n() == 8) %>%
+  ungroup(sofifa_id)
+fulldata %>%
+  filter(sofifa_id == 158023) 
+```
+
+# Creating Dummy variables
+To help with categorical analysis, I will create a dummy variable for the player's position. To do this, I will first create a general position column to designate if a player is a defender, midfielder, or forward. After this, I will create three separate columns with 1s and 0s to use as the dummy variables.
+
+```{r}
+# To get position categories
+fulldata = fulldata %>%
+  mutate(position = ifelse(str_detect(player_positions, ("CB|RB|LB|LWB|RWB")), "defender", 
+                           ifelse(str_detect(player_positions, ("CDM|CM|CAM|LM|RM")), "midfielder", "forward"))) %>%
+  mutate(defender = ifelse(position == "defender", 1, 0), 
+         midfielder = ifelse(position == "midfielder", 1, 0),
+         forward = ifelse(position == "forward", 1, 0))
+```
+
+# Basic Correlation Matrix
+To start my analysis, I create a filtered dataset only containing the base player statistics for each player. I will then view a correlation matrix to see which statistics are correlated with each other
+```{r}
+statdata = fulldata %>%
+  select(pace, shooting, dribbling, passing, defending, physic)
+cor(statdata)
+```
+From the correlation matrix, we see that the most correlated statistics are dribbling and passing. These statistics are typically the highest for midfield players, and tend to be the most balanced statistics. Defending and physical also have a mild positive correlation, mostly because of defensive players being high in both of these stats. The strongest negative correlation is between shooting and defending, which is exactly what would be expected with players that are good at shooting being bad at defending, and vice versa. 
+
+# Stats across different years
+
+To start with the year by year analysis, I will first look at the mean total stats for each year. As shown below, it appears that the mean total base stats may have slightly increased from FIFA 15, but have remained relatively consistent from FIFA 17 to today.
+
+```{r}
+fulldata %>%
+  mutate(totalstats = pace + shooting + dribbling + passing + defending + physic) %>%
+  group_by(year) %>%
+  summarise(mean(totalstats))
+```
+
+Next, I will look at the mean for each stat by year. After viewing these, it seems that shooting, dribbling, passing, defending, and physical might mildly increase from year to year, while pace appears to be slowly declining.
+
+```{r}
+fulldata %>%
+  group_by(year) %>%
+  summarise(mean(pace), mean(shooting), mean(dribbling), mean(passing), mean(defending), mean(physic))
+```
+
+Since this is hard to show a clear association, I will start by filtering the data set to only look at forwards and only look at their shooting statistic since it is generally the most important attribute for a forward player. I will also do the same with defenders and their defending stats.
+
+```{r}
+fulldata %>%
+  filter(position == "forward") %>%
+  ggplot(., aes(x = year, y = shooting, fill = year)) +
+  geom_violin() + 
+  theme_bw() + 
+  ggtitle("Shooting Statistics of Forwards by Year")
+```
+
+```{r}
+fulldata %>%
+  filter(position == "defender") %>%
+  ggplot(., aes(x = year, y = defending, fill = year)) +
+  geom_violin() + 
+  theme_bw() + 
+  ggtitle("Defending Statistics of Defenders by Year")
+```
+
+As seen in the first plot above, it appears that forward player's shooting does appear to gradually increase from year to year, while the defending statistic for defenders appears to do the same.
+
+# Relationships between shooting and defending
+Another bit of interesting analysis could be the relationship between shooting and defending for offensive and defensive players. Without looking at the data, I would hypothesize that forward players have a 2:1 relationship with shooting to defending, and defensive players have a 2:1 relationship with defending to shooting, but I'm curious to see if my hypothesis for this is wrong.
+To do this, I will filter the data sets by position, and then compute these ratios as well as displaying a plot to show the relationship.
+```{r}
+fulldata %>%
+  filter(position == "forward") %>%
+  mutate(shootdef = shooting/defending) %>%
+  summarise('Average forward shooting/defending' = mean(shootdef), var(shootdef))
+```
+
+```{r}
+fulldata %>%
+  filter(position == "defender") %>%
+  mutate(defshoot = defending/shooting) %>%
+  summarise('Average defender defending/shooting' = mean(defshoot), var(defshoot))
+```
+
+```{r}
+fulldata %>%
+  mutate(shootdef = shooting/defending) %>%
+  ggplot(., aes(x = position, y = shootdef, fill = position)) + 
+  geom_boxplot() + 
+  ggtitle("Ratio of Shooting to Defending by Position")
+```
+
+From the summary statistics, we can see that the ratios are not quite as identical as predicted. Because of this, I will perform a two sample t-test to compare the means to see if they are actually different.
+
+```{r}
+forwardvec = fulldata %>%
+  filter(position == "forward") %>%
+  mutate(shootdef = shooting/defending) %>%
+  select(shootdef)
+defendvec = fulldata %>%
+  filter(position == "defender") %>%
+  mutate(defshoot = defending/shooting) %>%
+  select(defshoot)
+t.test(forwardvec, defendvec)
+```
+
+Based on the t-test above, we see that the p-value $\approx$ 0, and so we can reject the null hypothesis and conclude that there is significant evidence that the mean ratio for shooting to defending stats for forwards is significantly different (and greater) than the mean ratio for defending to shooting stats for defenders.
+
+To interpret this is more context, we see that forwards are worse at defending than defenders are at shooting, suggesting that defenders are more balanced players overall than forwards.
+
+# Total stats by age
+One other bit of analysis to consider is age. While a player's ability might slightly decrease as they get older and closer to retirement, sometimes their FIFA stats do not reflect the same way. In soccer, many people would consider a player's prime to be around their mid to late 20s. In this next step, I will try and look at what age a player's peak FIFA stats are. Since a player's position may vary throughout their career, I will only do this with their total stats (not broken down by individual stats), broken down by player position.
+
+```{r}
+fulldata %>%
+  mutate(totalstats = pace + shooting + dribbling + passing + defending + physic) %>%
+  group_by(sofifa_id) %>%
+  slice_max(totalstats) %>%
+  ungroup(sofifa_id) %>%
+  mutate(position = as.factor(position)) %>%
+  ggplot(., aes(x= position, y = age, fill = position)) + 
+  geom_violin() +
+  theme_bw()
+```
+
+While I thought that the mean might have been in the lower 30s, it appears that is is exactly what was anticipated around 27. The data is also right skewed, which is expected because very few players hit their peak in their early 20s. It also appears that position does not make a difference as they all have roughly the same distribution.
+
+# Potential Future Analysis
+While I was unable to find a relationship with time as I had hoped, there is lots of work that could be done in the future with time series analysis to analyze this data. This could be done on a player-by-player case, tracking player growth from year to year and going further into that analysis. It also might be more useful to restrict the analysis to player above a certain rating or players from certain leagues. FIFA contains over 15,000 players from various leagues, but in reality less than 1000 are actually regularly used in the game. I am unsure as to whether only performing the analysis on relevant players would provide different results, but it might be something interesting to investigate.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
-<meta name="dcterms.date" content="2022-10-24">
+<meta name="author" content="Brenden Bready">
+<meta name="dcterms.date" content="2022-11-29">
 
-<title>../.. - Post With Code</title>
+<title>../.. - Final Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -61,6 +124,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -104,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">Final Project</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">code</div>
@@ -119,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Harlow Malloc </p>
+               <p>Brenden Bready </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 24, 2022</p>
+        <p class="date">2022-11-29</p>
       </div>
     </div>
       
@@ -143,9 +207,293 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a post with executable code.</p>
+<section id="objective" class="level1">
+<h1>Objective</h1>
+<p>For this project, I will be doing an analysis of player ratings and statistics across different years of the FIFA video game. Many FIFA fans feel that player statistics are inflated every year, having various effects on game play and strategies. Through this analysis, I hope to investigate whether this hypothesis is accurate, as well as investigating other hidden trends throughout the game.</p>
+</section>
+<section id="data-description" class="level1">
+<h1>Data Description</h1>
+<p>The data is presented in 8 different data sets containing hundreds of stats for each player in the FIFA video game. Each player in the game has 6 base statistics: pace, shooting, dribbling, passing, defending, and physical. Each stat is scored from 1-99, with 1 being the lowest and 99 being the highest. Generally, no player will ever have a stat lower than 10, and stats above 90 are fairly uncommon and reserved for only the best. For example, you might expect a forward to have somewhere around 70-80 shooting, and maybe 30-40 defending, while a defender will have opposite stats. The stats determine how well the player plays during a game.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>players15 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_15.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>players16 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_16.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>players17 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_17.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>players18 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_18.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>players19 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_19.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>players20 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_20.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>players21 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_21.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>players22 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bbb59/OneDrive/Documents/VirginiaTech/Programming/players_22.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-organization" class="level1">
+<h1>Data Organization</h1>
+<p>The first step in the analysis was to organize the data. When read in, each data set had over 100 columns corresponding to various details about a player’s stats. To simplify this, I will select out a player’s base stats (pace, shooting, passing, dribbling, defending, physical) as well as some details about the player for potential related analysis. I will also add a year variable to each data set, which will be helpful in the next step when combining them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 15 set</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>players15 <span class="ot">=</span> players15 <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">15</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 16 set</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>players16 <span class="ot">=</span> players16 <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">16</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 17 set</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>players17 <span class="ot">=</span> players17 <span class="sc">%&gt;%</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">17</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 18 set</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>players18 <span class="ot">=</span> players18 <span class="sc">%&gt;%</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">18</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 19 set</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>players19 <span class="ot">=</span> players19 <span class="sc">%&gt;%</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">19</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 20 set</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>players20 <span class="ot">=</span> players20 <span class="sc">%&gt;%</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">20</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 21 set</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>players21 <span class="ot">=</span> players21 <span class="sc">%&gt;%</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">21</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorganizing Fifa 22 set</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>players22 <span class="ot">=</span> players22 <span class="sc">%&gt;%</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sofifa_id, short_name, player_positions, overall, value_eur, age, height_cm, weight_kg, club_position, preferred_foot, weak_foot, skill_moves, pace, shooting, passing, dribbling, defending, physic) <span class="sc">%&gt;%</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">22</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After the data is organized, I will use the full_join() to merge the datasets. I use full_join() so that I can have details about every player split up by the year. This is also a good way to only include players who were in each FIFA from 2015-2022 to help with consistency. For example, if you filter the dataset to only include details about Lionel Messi, you will see his stats for each year from 2015-2022. As a note, I have removed goalkeepers from the analysis since their stats are different from other outfield players. An example of the data filtered to only details Messi is shown below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining all datasets into one</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>join1 <span class="ot">=</span> <span class="fu">full_join</span>(players15, players16)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>join2 <span class="ot">=</span> <span class="fu">full_join</span>(join1, players17)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>join3 <span class="ot">=</span> <span class="fu">full_join</span>(join2, players18)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>join4 <span class="ot">=</span> <span class="fu">full_join</span>(join3, players19)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>join5 <span class="ot">=</span> <span class="fu">full_join</span>(join4, players20)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>join6 <span class="ot">=</span> <span class="fu">full_join</span>(join5, players21)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fulldata <span class="ot">=</span> <span class="fu">full_join</span>(join6, players22) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(player_positions <span class="sc">!=</span> <span class="st">"GK"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.factor</span>(year)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sofifa_id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">==</span> <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>(sofifa_id)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sofifa_id <span class="sc">==</span> <span class="dv">158023</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 x 19
+  sofifa_id short_name player_positions overall value_eur   age height_cm
+      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;     &lt;int&gt;
+1    158023 L. Messi   CF                    93 100500000    27       169
+2    158023 L. Messi   RW, CF                94 111000000    28       170
+3    158023 L. Messi   RW                    93  89000000    29       170
+4    158023 L. Messi   RW                    93 105000000    30       170
+5    158023 L. Messi   CF, RW, ST            94 110500000    31       170
+6    158023 L. Messi   RW, CF, ST            94  95500000    32       170
+7    158023 L. Messi   RW, ST, CF            93 103500000    33       170
+8    158023 L. Messi   RW, ST, CF            93  78000000    34       170
+# ... with 12 more variables: weight_kg &lt;int&gt;, club_position &lt;chr&gt;,
+#   preferred_foot &lt;chr&gt;, weak_foot &lt;int&gt;, skill_moves &lt;int&gt;, pace &lt;int&gt;,
+#   shooting &lt;int&gt;, passing &lt;int&gt;, dribbling &lt;int&gt;, defending &lt;int&gt;,
+#   physic &lt;int&gt;, year &lt;fct&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-dummy-variables" class="level1">
+<h1>Creating Dummy variables</h1>
+<p>To help with categorical analysis, I will create a dummy variable for the player’s position. To do this, I will first create a general position column to designate if a player is a defender, midfielder, or forward. After this, I will create three separate columns with 1s and 0s to use as the dummy variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To get position categories</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fulldata <span class="ot">=</span> fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">position =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(player_positions, (<span class="st">"CB|RB|LB|LWB|RWB"</span>)), <span class="st">"defender"</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(player_positions, (<span class="st">"CDM|CM|CAM|LM|RM"</span>)), <span class="st">"midfielder"</span>, <span class="st">"forward"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">defender =</span> <span class="fu">ifelse</span>(position <span class="sc">==</span> <span class="st">"defender"</span>, <span class="dv">1</span>, <span class="dv">0</span>), </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">midfielder =</span> <span class="fu">ifelse</span>(position <span class="sc">==</span> <span class="st">"midfielder"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">forward =</span> <span class="fu">ifelse</span>(position <span class="sc">==</span> <span class="st">"forward"</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="basic-correlation-matrix" class="level1">
+<h1>Basic Correlation Matrix</h1>
+<p>To start my analysis, I create a filtered dataset only containing the base player statistics for each player. I will then view a correlation matrix to see which statistics are correlated with each other</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>statdata <span class="ot">=</span> fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pace, shooting, dribbling, passing, defending, physic)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(statdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                pace   shooting  dribbling     passing   defending      physic
+pace       1.0000000  0.3592268  0.5518387  0.27789141 -0.34293357 -0.26751919
+shooting   0.3592268  1.0000000  0.7759387  0.66066848 -0.47888212 -0.12333463
+dribbling  0.5518387  0.7759387  1.0000000  0.82961335 -0.27170214 -0.20193854
+passing    0.2778914  0.6606685  0.8296133  1.00000000  0.05166898 -0.03067526
+defending -0.3429336 -0.4788821 -0.2717021  0.05166898  1.00000000  0.53888432
+physic    -0.2675192 -0.1233346 -0.2019385 -0.03067526  0.53888432  1.00000000</code></pre>
+</div>
+</div>
+<p>From the correlation matrix, we see that the most correlated statistics are dribbling and passing. These statistics are typically the highest for midfield players, and tend to be the most balanced statistics. Defending and physical also have a mild positive correlation, mostly because of defensive players being high in both of these stats. The strongest negative correlation is between shooting and defending, which is exactly what would be expected with players that are good at shooting being bad at defending, and vice versa.</p>
+</section>
+<section id="stats-across-different-years" class="level1">
+<h1>Stats across different years</h1>
+<p>To start with the year by year analysis, I will first look at the mean total stats for each year. As shown below, it appears that the mean total base stats may have slightly increased from FIFA 15, but have remained relatively consistent from FIFA 17 to today.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">totalstats =</span> pace <span class="sc">+</span> shooting <span class="sc">+</span> dribbling <span class="sc">+</span> passing <span class="sc">+</span> defending <span class="sc">+</span> physic) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(totalstats))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 x 2
+  year  `mean(totalstats)`
+  &lt;fct&gt;              &lt;dbl&gt;
+1 15                  363.
+2 16                  376.
+3 17                  381.
+4 18                  385.
+5 19                  387.
+6 20                  388.
+7 21                  388.
+8 22                  386.</code></pre>
+</div>
+</div>
+<p>Next, I will look at the mean for each stat by year. After viewing these, it seems that shooting, dribbling, passing, defending, and physical might mildly increase from year to year, while pace appears to be slowly declining.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(pace), <span class="fu">mean</span>(shooting), <span class="fu">mean</span>(dribbling), <span class="fu">mean</span>(passing), <span class="fu">mean</span>(defending), <span class="fu">mean</span>(physic))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 x 7
+  year  `mean(pace)` `mean(shooting)` `mean(dribbling)` `mean(passing)`
+  &lt;fct&gt;        &lt;dbl&gt;            &lt;dbl&gt;             &lt;dbl&gt;           &lt;dbl&gt;
+1 15            71.3             53.2              63.4            58.0
+2 16            71.9             55.5              65.9            60.8
+3 17            71.9             56.5              66.8            62.0
+4 18            71.0             57.4              67.4            62.9
+5 19            69.7             58.0              67.7            63.6
+6 20            68.4             58.5              67.8            64.1
+7 21            67.3             58.8              67.8            64.4
+8 22            65.9             59.0              67.6            64.4
+# ... with 2 more variables: `mean(defending)` &lt;dbl&gt;, `mean(physic)` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Since this is hard to show a clear association, I will start by filtering the data set to only look at forwards and only look at their shooting statistic since it is generally the most important attribute for a forward player. I will also do the same with defenders and their defending stats.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(position <span class="sc">==</span> <span class="st">"forward"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> shooting, <span class="at">fill =</span> year)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Shooting Statistics of Forwards by Year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(position <span class="sc">==</span> <span class="st">"defender"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> defending, <span class="at">fill =</span> year)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Defending Statistics of Defenders by Year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As seen in the first plot above, it appears that forward player’s shooting does appear to gradually increase from year to year, while the defending statistic for defenders appears to do the same.</p>
+</section>
+<section id="relationships-between-shooting-and-defending" class="level1">
+<h1>Relationships between shooting and defending</h1>
+<p>Another bit of interesting analysis could be the relationship between shooting and defending for offensive and defensive players. Without looking at the data, I would hypothesize that forward players have a 2:1 relationship with shooting to defending, and defensive players have a 2:1 relationship with defending to shooting, but I’m curious to see if my hypothesis for this is wrong. To do this, I will filter the data sets by position, and then compute these ratios as well as displaying a plot to show the relationship.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(position <span class="sc">==</span> <span class="st">"forward"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">shootdef =</span> shooting<span class="sc">/</span>defending) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">'Average forward shooting/defending'</span> <span class="ot">=</span> <span class="fu">mean</span>(shootdef), <span class="fu">var</span>(shootdef))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 x 2
+  `Average forward shooting/defending` `var(shootdef)`
+                                 &lt;dbl&gt;           &lt;dbl&gt;
+1                                 2.19           0.235</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(position <span class="sc">==</span> <span class="st">"defender"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">defshoot =</span> defending<span class="sc">/</span>shooting) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">'Average defender defending/shooting'</span> <span class="ot">=</span> <span class="fu">mean</span>(defshoot), <span class="fu">var</span>(defshoot))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 x 2
+  `Average defender defending/shooting` `var(defshoot)`
+                                  &lt;dbl&gt;           &lt;dbl&gt;
+1                                  1.61           0.243</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">shootdef =</span> shooting<span class="sc">/</span>defending) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> position, <span class="at">y =</span> shootdef, <span class="at">fill =</span> position)) <span class="sc">+</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Ratio of Shooting to Defending by Position"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>From the summary statistics, we can see that the ratios are not quite as identical as predicted. Because of this, I will perform a two sample t-test to compare the means to see if they are actually different.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>forwardvec <span class="ot">=</span> fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(position <span class="sc">==</span> <span class="st">"forward"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">shootdef =</span> shooting<span class="sc">/</span>defending) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(shootdef)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>defendvec <span class="ot">=</span> fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(position <span class="sc">==</span> <span class="st">"defender"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">defshoot =</span> defending<span class="sc">/</span>shooting) <span class="sc">%&gt;%</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(defshoot)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(forwardvec, defendvec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  forwardvec and defendvec
+t = 60.282, df = 5945.5, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.5630099 0.6008590
+sample estimates:
+mean of x mean of y 
+ 2.187055  1.605121 </code></pre>
+</div>
+</div>
+<p>Based on the t-test above, we see that the p-value <span class="math inline">\(\approx\)</span> 0, and so we can reject the null hypothesis and conclude that there is significant evidence that the mean ratio for shooting to defending stats for forwards is significantly different (and greater) than the mean ratio for defending to shooting stats for defenders.</p>
+<p>To interpret this is more context, we see that forwards are worse at defending than defenders are at shooting, suggesting that defenders are more balanced players overall than forwards.</p>
+</section>
+<section id="total-stats-by-age" class="level1">
+<h1>Total stats by age</h1>
+<p>One other bit of analysis to consider is age. While a player’s ability might slightly decrease as they get older and closer to retirement, sometimes their FIFA stats do not reflect the same way. In soccer, many people would consider a player’s prime to be around their mid to late 20s. In this next step, I will try and look at what age a player’s peak FIFA stats are. Since a player’s position may vary throughout their career, I will only do this with their total stats (not broken down by individual stats), broken down by player position.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fulldata <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">totalstats =</span> pace <span class="sc">+</span> shooting <span class="sc">+</span> dribbling <span class="sc">+</span> passing <span class="sc">+</span> defending <span class="sc">+</span> physic) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sofifa_id) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(totalstats) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>(sofifa_id) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">position =</span> <span class="fu">as.factor</span>(position)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x=</span> position, <span class="at">y =</span> age, <span class="at">fill =</span> position)) <span class="sc">+</span> </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>While I thought that the mean might have been in the lower 30s, it appears that is is exactly what was anticipated around 27. The data is also right skewed, which is expected because very few players hit their peak in their early 20s. It also appears that position does not make a difference as they all have roughly the same distribution.</p>
+</section>
+<section id="potential-future-analysis" class="level1">
+<h1>Potential Future Analysis</h1>
+<p>While I was unable to find a relationship with time as I had hoped, there is lots of work that could be done in the future with time series analysis to analyze this data. This could be done on a player-by-player case, tracking player growth from year to year and going further into that analysis. It also might be more useful to restrict the analysis to player above a certain rating or players from certain leagues. FIFA contains over 15,000 players from various leagues, but in reality less than 1000 are actually regularly used in the game. I am unsure as to whether only performing the analysis on relevant players would provide different results, but it might be something interesting to investigate.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
