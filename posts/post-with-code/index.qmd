@@ -2,7 +2,7 @@
 title: "Final Project"
 author: "Brenden Bready"
 date: "2022-12-4"
-categories: [news, code, analysis]
+categories: [code]
 image: "image.jpg"
 ---
 
